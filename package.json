@@ -1,0 +1,37 @@
+{
+  "name": "btp-external",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap-cloud-sdk/http-client": "^3.16.0",
+    "@sap-cloud-sdk/resilience": "^3.16.0",
+    "@sap/cds": "^7.9.4",
+    "express": "^4",
+    "@sap/xssec": "^3"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^7",
+    "@sap/eslint-plugin-cds": "^3",
+    "eslint": "^9"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "deploy": "cf deploy mta_archives/btp-external_1.0.0.mtar"
+  },
+  "cds": {
+    "requires": {
+      "Northdata": {
+        "kind": "odata-v2",
+        "model": "srv/external/Northdata",
+        "credentials": {
+          "url": "https://services.odata.org/Northwind/Northwind.svc"
+        }
+      },
+      "auth": "xsuaa"
+    }
+  }
+}
