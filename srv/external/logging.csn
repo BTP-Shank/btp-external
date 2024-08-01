@@ -1,0 +1,67 @@
+{
+ "meta": {
+  "creator": "cds-dk 7.9.6"
+ },
+ "$version": "2.0",
+ "definitions": {
+  "logging.Logger": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "ID": {
+     "key": true,
+     "type": "cds.UUID",
+     "notNull": true,
+     "@Core.ComputedDefaultValue": true
+    },
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "entitysetname": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "externalendpoint": {
+     "type": "cds.String",
+     "length": 300
+    }
+   }
+  },
+  "logging": {
+   "kind": "service",
+   "@cds.external": true
+  }
+ }
+}

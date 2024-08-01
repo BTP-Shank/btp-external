@@ -28,10 +28,18 @@
         "kind": "odata-v2",
         "model": "srv/external/Northdata",
         "credentials": {
-          "url": "https://services.odata.org/Northwind/Northwind.svc"
+          "destination": "Northwind"
         }
       },
-      "auth": "xsuaa"
+      "auth": "xsuaa",
+      "destinations": true,
+      "logging": {
+        "kind": "odata",
+        "model": "srv/external/logging",
+        "credentials": {
+          "destination": "logger_btp"
+        }
+      }
     }
   }
 }

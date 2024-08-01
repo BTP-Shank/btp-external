@@ -26,6 +26,7 @@ modules:
           srv-url: ${default-url}
     requires:
       - name: btp-external-auth
+      - name: btp-external-destination
 
 
 resources:
@@ -38,3 +39,8 @@ resources:
       config:
         xsappname: btp-external-${org}-${space}
         tenant-mode: dedicated
+  - name: btp-external-destination
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: destination
+      service-plan: lite
